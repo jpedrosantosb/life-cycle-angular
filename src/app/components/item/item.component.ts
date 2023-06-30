@@ -13,6 +13,7 @@ export class ItemComponent implements OnInit, OnChanges, OnDestroy {
   @Output() emitindoItemParaEditar = new EventEmitter();
   @Output() emitindoItemParaDeletar = new EventEmitter();
 
+
   faPen = faPen;
   faTrash = faTrash;
 

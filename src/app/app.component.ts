@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 import { Item } from './interfaces/iItem';
 import { ListaDeCompraService } from './service/lista-de-compra.service';
 
@@ -30,5 +30,9 @@ export class AppComponent implements OnInit, DoCheck {
   deletarItem(id: Number) {
     const index = this.listaDeCompra.findIndex((item) => item.id === id);
     this.listaDeCompra.splice(index, 1);
+  }
+
+  limparLista() {
+    this.listaDeCompra = [];
   }
 }
