@@ -24,7 +24,6 @@ export class ItemComponent implements OnInit, OnChanges, OnDestroy {
   ngOnChanges() { }
 
   ngOnDestroy() {
-    console.log('ngOnDestroy')
   }
 
   editarItem() {

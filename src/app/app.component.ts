@@ -7,7 +7,7 @@ import { ListaDeCompraService } from './service/lista-de-compra.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, DoCheck {
+export class AppComponent implements OnInit, DoCheck, OnDestroy{
   title = 'app-lista-de-compras';
   listaDeCompra!: Array<Item>;
   itemParaSerEditado!: Item;
@@ -23,6 +23,11 @@ export class AppComponent implements OnInit, DoCheck {
     this.listaService.atualizarLocalStorage();
   }
 
+  ngOnDestroy() {
+    this.listaService.atualizarLocalStorage()
+    console.log('chamei!!')
+  }
+
   editarItem(item: Item) {
     this.itemParaSerEditado = item;
   }
@@ -34,5 +39,6 @@ export class AppComponent implements OnInit, DoCheck {
 
   limparLista() {
     this.listaDeCompra = [];
+    this.listaService.deletaTodalista()
   }
 }
